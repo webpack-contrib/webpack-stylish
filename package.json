@@ -1,0 +1,48 @@
+{
+  "name": "webpack-stylish",
+  "version": "0.1.0",
+  "description": "A stylish reporter for webpack",
+  "license": "MIT",
+  "repository": "webpack/webpack-stylish",
+  "author": "Andrew Powell <andrew@shellscape.org>",
+  "homepage": "https://github.com/webpack/webpack-stylish",
+  "publishConfig": {
+    "tag": "next"
+  },
+  "main": "index.js",
+  "bin": "cli.js",
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "beautify": "npm run lint -- --fix",
+    "ci": "npm run lint && npm run test",
+    "lint": "eslint index.js test",
+    "mocha": "mocha test/test.js --full-trace --check-leaks --exit",
+    "test": "npm run mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "webpack": "^2.2.0 || ^3.0.0 || ^4.0.0-beta.1"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "log-symbols": "^2.2.0",
+    "plur": "^2.1.2",
+    "pretty-bytes": "^4.0.2",
+    "strip-ansi": "^4.0.0",
+    "text-table": "^0.2.0",
+    "wordwrap": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-webpack": "^1.2.5",
+    "eslint-plugin-import": "^2.8.0",
+    "execa": "^0.9.0",
+    "mocha": "^5.0.0",
+    "webpack": "^3.11.0",
+    "webpack-log": "^1.1.2"
+  }
+}
