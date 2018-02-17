@@ -1,14 +1,11 @@
 {
   "name": "webpack-stylish",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A stylish reporter for webpack",
   "license": "MIT",
-  "repository": "webpack/webpack-stylish",
+  "repository": "webpack-contrib/webpack-stylish",
   "author": "Andrew Powell <andrew@shellscape.org>",
   "homepage": "https://github.com/webpack/webpack-stylish",
-  "publishConfig": {
-    "tag": "next"
-  },
   "main": "index.js",
   "bin": "cli.js",
   "engines": {
