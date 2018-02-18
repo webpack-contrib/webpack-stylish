@@ -38,6 +38,9 @@
     "eslint-config-webpack": "^1.2.5",
     "eslint-plugin-import": "^2.8.0",
     "execa": "^0.9.0",
+    "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^2.30.1",
+    "loud-rejection": "^1.6.0",
     "mocha": "^5.0.0",
     "webpack": "^3.11.0",
     "webpack-log": "^1.1.2"

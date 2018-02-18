@@ -11,7 +11,7 @@ module.exports = [{
   entry: './entry.js',
   output: {
     filename: 'client.js',
-    path: path.join(__dirname, '/client'),
+    path: path.join(__dirname, '/dist/client'),
     publicPath: '/static/'
   },
   plugins: [
@@ -24,7 +24,7 @@ module.exports = [{
   entry: './server.js',
   output: {
     filename: 'server.js',
-    path: path.join(__dirname, '/server')
+    path: path.join(__dirname, '/dist/server')
   },
   plugins: [
     new webpack.NamedModulesPlugin(),

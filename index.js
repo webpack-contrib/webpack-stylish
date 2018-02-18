@@ -27,8 +27,6 @@ module.exports = class StylishReporter {
         exclude: ['node_modules', 'bower_components', 'components']
       };
 
-      // TODO: test multi compiler
-
       const json = stats.toJson(opts, true);
       state.time += json.time;
 

@@ -7,4 +7,5 @@ require('chalk');
 
 // error
 // if (!window) { require('test'); }
-// require('./image.jpg');
+
+require('./image.jpg');

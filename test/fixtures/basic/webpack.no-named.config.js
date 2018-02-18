@@ -6,12 +6,12 @@ const StylishReporter = require('../../../index');
 
 module.exports = {
   // mode: 'development',x
-  context: path.resolve(__dirname),
+  context: __dirname,
   devtool: 'source-map',
   entry: './entry.js',
   output: {
     filename: './output.js',
-    path: path.resolve(__dirname)
+    path: path.join(__dirname, '/dist')
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
