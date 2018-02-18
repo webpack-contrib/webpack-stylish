@@ -1,25 +1,25 @@
 {
   "name": "webpack-stylish",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "A stylish reporter for webpack",
   "license": "MIT",
   "repository": "webpack-contrib/webpack-stylish",
   "author": "Andrew Powell <andrew@shellscape.org>",
   "homepage": "https://github.com/webpack/webpack-stylish",
   "main": "index.js",
-  "bin": "cli.js",
   "engines": {
     "node": ">=6"
   },
   "scripts": {
     "beautify": "npm run lint -- --fix",
     "ci": "npm run lint && npm run test",
-    "lint": "eslint index.js test",
+    "lint": "eslint index.js test lib",
     "mocha": "mocha test/test.js --full-trace --check-leaks --exit",
     "test": "npm run mocha"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "lib/"
   ],
   "peerDependencies": {
     "webpack": "^2.2.0 || ^3.0.0 || ^4.0.0-beta.1"
