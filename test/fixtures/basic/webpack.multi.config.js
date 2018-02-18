@@ -2,7 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const StylishReporter = require('../../index');
+const StylishReporter = require('../../../index');
 
 const stylish = new StylishReporter();
 
