@@ -41,7 +41,7 @@ module.exports = class StylishReporter {
 
       if (!rendered.header) {
         rendered.header = true;
-        log.push(chalk.cyan(`webpack v${version}\n`));
+        log.push(chalk.cyan(`\nwebpack v${version}\n`));
       }
 
       log.push(hash);

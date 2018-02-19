@@ -5,7 +5,8 @@ const webpack = require('webpack');
 // const config = require('./fixtures/basic/webpack.multi.config.js');
 // const config = require('./fixtures/basic/webpack.no-named.config.js');
 // const config = require('./fixtures/basic/webpack.loaders.config.js');
-const config = require('./fixtures/basic/webpack.problems.config.js');
+// const config = require('./fixtures/basic/webpack.problems.config.js');
+const config = require('./fixtures/big/webpack.config.js');
 
 const compiler = webpack(config);
 
