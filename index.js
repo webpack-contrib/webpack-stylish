@@ -7,14 +7,26 @@ const style = require('./lib/style');
 module.exports = class StylishReporter {
   constructor() {
     this.rendered = {
+      footer: false,
       header: false
     };
 
-    this.state = { active: 0, instances: 0, time: 0 };
+    this.state = {
+      active: 0,
+      hashes: [],
+      instances: 0,
+      totals: {
+        errors: 0,
+        time: 0,
+        warnings: 0
+      },
+      time: 0
+    };
   }
 
   apply(compiler) {
     const { rendered, state } = this;
+    const { log } = console;
 
     state.active += 1;
     state.instances += 1;
@@ -28,34 +40,53 @@ module.exports = class StylishReporter {
       };
 
       const json = stats.toJson(opts, true);
+
+      // for --watch more than anything, don't print duplicate output for a hash
+      // if we've already seen that hash. compensates for a bug in webpack.
+      if (state.hashes.includes(json.hash)) {
+        return;
+      }
+
+      state.active -= 1;
+      state.hashes.push(json.hash);
       state.time += json.time;
 
       // errors and warnings go first, to make sure the counts are correct for modules
-      const problems = style.problems(parse.problems(json));
+      const problems = style.problems(parse.problems(json, state));
       const files = style.files(parse.files(json), compiler.options);
       const hidden = style.hidden(parse.hidden(json));
       const hash = style.hash(json, files, hidden);
 
       const { version } = json;
-      const log = [];
+      const out = [];
 
       if (!rendered.header) {
         rendered.header = true;
-        log.push(chalk.cyan(`\nwebpack v${version}\n`));
+        out.push(chalk.cyan(`\nwebpack v${version}\n`));
       }
 
-      log.push(hash);
-      log.push(problems);
+      out.push(hash);
+      out.push(problems);
 
-      state.active -= 1;
-
-      if (state.active === 0) {
+      // note: when --watch the active count will drop below zero.
+      if (state.active <= 0) {
         const footer = style.footer(parse.footer(state));
-        rendered.footer = true;
-        log.push(footer);
+        if (footer.length) {
+          rendered.footer = true;
+          out.push(footer);
+        }
+
+        // reset the totals
+        state.totals = { errors: 0, time: 0, warnings: 0 };
+      } else {
+        rendered.footer = false;
       }
 
-      console.log(log.join('\n')); // eslint-disable-line no-console
+      log(out.join('\n'));
+
+      if (rendered.footer && compiler.options.watch === true) {
+        log();
+      }
     }
 
     compiler.options.stats = 'none';
