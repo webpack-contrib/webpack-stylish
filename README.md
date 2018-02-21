@@ -108,6 +108,19 @@ webpack's default output via the
 The `webpack-stylish` reporter will _straight up ignore_ the `stats` property in
 your `webpack` config, if you have one set. _(This reporter is opinionated!)_.
 
+### Naughty Loaders and Plugins
+
+Some loaders and plugins are going to need a spanking. For they have been naughty
+and are pushing wonky formatting and multiple-errors-packed-into-one errors onto
+a compliation's error and/or warning stacks. `webpack-stylish` does it's best
+to compensate for that, but be aware that some plugins will cause some wonky
+output. For example, `stylelint-webpack-plugin` is guilty of this.
+
+It's impossible for us to test the world (aka. every plugin ever) so if
+you see something off, please open an issue and let us know. We'll either
+compensate further in the code here, or try to bring the offending plugin or
+loader into the light.
+
 ## Contributing
 
 We welcome your contributions! Please have a read of

@@ -8,7 +8,7 @@ const stylish = new StylishReporter();
 
 module.exports = [{
   context: __dirname,
-  entry: './entry.js',
+  entry: './client.js',
   output: {
     filename: 'client.js',
     path: path.join(__dirname, '/dist/client'),
