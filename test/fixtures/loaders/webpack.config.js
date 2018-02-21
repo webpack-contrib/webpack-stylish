@@ -8,7 +8,7 @@ module.exports = {
   // mode: 'development',
   context: __dirname,
   devtool: 'source-map',
-  entry: './loader-entry.js',
+  entry: './entry.js',
   output: {
     filename: './output.js',
     path: path.join(__dirname, '/dist')

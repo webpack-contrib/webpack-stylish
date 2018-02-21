@@ -15,8 +15,10 @@ const t = (...args) => it(...args).timeout(5e3);
 function x(config, then, errFn) {
   const args = [binPath, ['--config', config]];
 
-  execa(...args)
-    .then(then)
+  const proc = execa(...args);
+  // proc.stdout.pipe(process.stdout);
+
+  proc.then(then)
     .catch((error) => {
       if (errFn) {
         errFn(error);
@@ -38,7 +40,7 @@ describe('webpack-stylish', () => {
   });
 
   t('should report: MutliCompiler', (done) => {
-    const configPath = path.resolve(__dirname, 'fixtures/basic/webpack.multi.config.js');
+    const configPath = path.resolve(__dirname, 'fixtures/multi/webpack.config.js');
 
     x(configPath, (result) => {
       const text = strip(result.stdout);
@@ -58,7 +60,7 @@ describe('webpack-stylish', () => {
   });
 
   t('should report for loaders', (done) => {
-    const configPath = path.resolve(__dirname, 'fixtures/basic/webpack.loaders.config.js');
+    const configPath = path.resolve(__dirname, 'fixtures/loaders/webpack.config.js');
 
     x(configPath, (result) => {
       const text = strip(result.stdout);
@@ -71,7 +73,7 @@ describe('webpack-stylish', () => {
   });
 
   t('should report problems', (done) => {
-    const configPath = path.resolve(__dirname, 'fixtures/basic/webpack.problems.config.js');
+    const configPath = path.resolve(__dirname, 'fixtures/problems/webpack.config.js');
 
     x(configPath, () => {}, (result) => {
       const text = strip(result.stdout);
