@@ -33,7 +33,7 @@ module.exports = class StylishReporter {
 
     function render(stats) {
       const opts = {
-        context: '/Users/powella/code/webpack-stylish/test/fixture',
+        context: compiler.context,
         cached: false,
         cachedAssets: false,
         exclude: ['node_modules', 'bower_components', 'components']
