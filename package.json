@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": "webpack-contrib/webpack-stylish",
   "author": "Andrew Powell <andrew@shellscape.org>",
-  "homepage": "https://github.com/webpack/webpack-stylish",
+  "homepage": "https://github.com/webpack-contrib/webpack-stylish",
   "main": "index.js",
   "engines": {
     "node": ">=6"
