@@ -22,7 +22,7 @@
     "lib/"
   ],
   "peerDependencies": {
-    "webpack": "^2.2.0 || ^3.0.0 || ^4.0.0-beta.1"
+    "webpack": "^2.2.0 || ^3.0.0 || ^4.4.0"
   },
   "dependencies": {
     "chalk": "^2.3.0",
@@ -42,7 +42,7 @@
     "html-webpack-plugin": "^2.30.1",
     "loud-rejection": "^1.6.0",
     "mocha": "^5.0.0",
-    "stylelint": "^9.1.0",
+    "stylelint": "^8.4.0",
     "stylelint-webpack-plugin": "^0.10.3",
     "webpack": "^3.11.0",
     "webpack-log": "^1.1.2"
